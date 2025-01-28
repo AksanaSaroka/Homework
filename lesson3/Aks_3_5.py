@@ -9,7 +9,8 @@
 number_of_seconds = int(input('Введите количество секунд: '))
 
 hh = str("{:02}".format(number_of_seconds//3600))
-mm = str((number_of_seconds % 3600)//60)
-ss = str(number_of_seconds%60)
+mm = str("{:02}".format((number_of_seconds % 3600)//60))
+ss = str("{:02}".format(number_of_seconds%60))
+
 print(hh, mm, ss, sep=':')
 print(f"{hh}:{mm}:{ss}")
