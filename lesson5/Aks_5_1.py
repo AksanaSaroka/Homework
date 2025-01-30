@@ -28,6 +28,8 @@ a = list(products.items())[1][1]
 print(int(a)*1.15)
 
 b =list(products.values())
+c = list(map(int, b))
+s_of_products = sum(c)
 
-print(b)
+print('Сумма', s_of_products)
 
