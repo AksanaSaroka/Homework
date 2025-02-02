@@ -7,5 +7,8 @@
 '''
 spisok = input('Введите цифры через пробел').split()
 num_list = list(map(int, spisok))
+
 print(num_list)
-print("Сумма списка:", sum(num_list))
+print("Сумма элементов списка:", sum(num_list))
+print("Максимальное значение из списка:", max(num_list))
+print("Среднее арифметическое элеметов списка:", (sum(num_list)/len(num_list)))
