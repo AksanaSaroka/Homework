@@ -10,8 +10,16 @@
 
 
 fraza = input('Введите фразу: ')
-print(len(fraza))
+glasn = 'aeiouyаеёиоуыэюя'
+
 
 words = fraza.split()
 num_words = len(words)
-print(num_words)
+
+fraza_lower = fraza.lower()
+num_glasn = sum(map(fraza_lower.count, glasn))
+
+print('Количиство символов:', len(fraza))
+print('Количиство слов:', num_words)
+print('Количиство гласных:', num_glasn)
+
