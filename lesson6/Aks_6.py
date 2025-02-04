@@ -6,3 +6,12 @@
     Пары могут образовать только следующие переменные - a1-a3, a2-a4, a3-a4"
 """
 
+# s = [a1, a2, a3, a4]
+s = [0.111, 0.333, 0.9, 0.7]
+
+# # if sum(map(lambda item: item % 7 == 0, s))
+if isinstance((map(lambda item, s)), float):
+    print('True')
+else:
+    print('False')
+
