@@ -24,12 +24,11 @@ product33 = product3.split()
 products = dict([product11, product22, product33])
 print(products)
 
-a = list(products.items())[1][1]
-print(int(a)*1.15)
 
-b =list(products.values())
-c = list(map(int, b))
-s_of_products = sum(c)
+text = input('Введите товар: ')
+print(f"{float(products[text])*1.15:.2f}")
 
-print('Сумма', s_of_products)
+
+s_of_products = sum(map(float, products.values()))
+print('Сумма', f"{s_of_products:.2f}")
 

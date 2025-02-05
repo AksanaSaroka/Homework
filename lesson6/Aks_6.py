@@ -10,8 +10,8 @@
 s = [0.111, 0.333, 0.9, 0.7]
 
 
-if isinstance((map(lambda item, s)), float):
-    print('True')
-else:
-    print('False')
+# if isinstance((map(lambda item, s)), float):
+#     print('True')
+# else:
+#     print('False')
 

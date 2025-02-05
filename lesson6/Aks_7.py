@@ -12,8 +12,7 @@ from pprint import pprint
 owm = OWM('87b7c330daf2579649274a648d33f753')
 mgr = owm.weather_manager()
 
-# print(dir(str))
-# print(dir(mgr))
+
 city = input('Введите город: ')
 obs = mgr.weather_at_place(city)
 w = obs.to_dict()
