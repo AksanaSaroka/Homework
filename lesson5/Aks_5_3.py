@@ -5,3 +5,8 @@ d = {'one':11, 'two':22, 'hello':'python', True:False}
 
 """
 
+d = {'one':11, 'two':22, 'hello':'python', True:False}
+
+number = int(input('Введите номер элемента: ')) - 1
+del d[list(d.keys())[number]]
+print(d)
