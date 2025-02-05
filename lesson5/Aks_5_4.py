@@ -5,3 +5,11 @@
 
 '''
 
+d = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+code = input('Введите фразу из пяти символов, используя a, b, c, d: ')
+
+sum_ochkov = 0
+for k in code:
+    sum_ochkov += d[k]
+
+print('Общее количество очков: ', sum_ochkov)
