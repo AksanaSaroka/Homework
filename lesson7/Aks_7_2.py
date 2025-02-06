@@ -6,3 +6,26 @@
 Например: Привет как дела => Прриииввввееееетттттт кааккк деелллаааа
 
 '''
+
+fraza = input('Введите фразу: ')
+
+words = fraza.split()
+
+new_word = ''
+new_words = ''
+
+for word in words:
+       for symbol in range(len(word)):
+         new_word += word[symbol] * (symbol+1) 
+                
+print(new_word)  
+
+            
+    
+
+ 
+
+# print(" ".join(new_word))
+
+
+
