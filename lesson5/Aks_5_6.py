@@ -17,4 +17,15 @@
     3) 11 44
     
 '''
+spisok1 = set(input('Введите числа через пробел: ').split())
+spisok2 = set(input('Введите числа через пробел: ').split())
+spisok3 = set(input('Введите числа через пробел: ').split())
 
+a = spisok1 | spisok2 | spisok3
+print(sorted(list(map(int,a))))
+
+b = spisok1 & spisok2 & spisok3
+print(sorted(list(map(int,b))))
+
+d = (spisok1 - spisok2 - spisok3) | (spisok2 - spisok1 - spisok3) | (spisok3 - spisok1 - spisok2)
+print(sorted(list(map(int,d))))
