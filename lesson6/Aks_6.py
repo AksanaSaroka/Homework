@@ -7,11 +7,10 @@
 """
 
 # s = [a1, a2, a3, a4]
-s = [0.111, 0.333, 0.9, 0.7]
+s = [1, 0.1, 3, 0.7]
 
+print(all(type(x) is float for x in s))
+print(any(type(x) is str for x in s))
 
-# if isinstance((map(lambda item, s)), float):
-#     print('True')
-# else:
-#     print('False')
-
+pairs = [(s[0],s[2]), (s[1],s[3]), (s[2],s[3])]
+print(pairs, any(type(x) is int and type(y) is int for x, y in pairs) )
