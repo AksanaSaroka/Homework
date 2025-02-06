@@ -12,7 +12,7 @@ fraza = input('Введите фразу: ')
 words = fraza.split()
 
 new_word = ''
-new_words = ''
+
 
 for word in words:
        for symbol in range(len(word)):
