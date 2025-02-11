@@ -9,3 +9,21 @@
 
 с помощью try перехватить возможные ошибки.
 '''
+
+
+
+def money_fun(a):
+    while True:
+        try:
+            a = int(input('Введите a: '))
+            if a <= 0:
+                raise ValueError('отрицательное число нельзя')
+            break
+        except ZeroDivisionError:
+            print('ноль нельзя')
+
+    a1 = round(float(a),2)
+    return print('{:,}'.format(a1).replace(',', ' '),'руб.')
+
+
+
