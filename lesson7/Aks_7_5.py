@@ -14,3 +14,8 @@
 
 
 '''
+
+elements = ['qwertyu','asdfggh','zxcvbnm','yuiop[]','hjklasd','mnbvnbv']
+
+for i, element in enumerate(elements,1):
+    print(i,'-', element, '-', element[i-1])

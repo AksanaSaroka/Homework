@@ -8,3 +8,28 @@
 
 """
 
+name, review = ' ', ' '
+
+word = 'stop'
+i = 1
+d = {}
+
+
+while name != word or review != word: 
+    name = input('Ваше имя: ')
+    if name == word:   
+        break
+    review = input('Ваш отзыв: ')
+    if review == word:       
+        break
+    i += 1
+    d.update({name: review})
+# print(i-1,d)
+print(f"количество отзывов:  {i-1} \
+        имена пользователей: {list(d.keys())}\
+        отзывы:{list(d.values())}"
+        )
+
+   
+
+

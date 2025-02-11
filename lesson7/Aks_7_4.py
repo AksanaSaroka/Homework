@@ -8,3 +8,11 @@
 *******
 
 '''
+
+height = int(input('Введите высоту ёлочки(от 3 до 20): '))
+
+s = ''
+
+for i in range(1, height + 1):
+      # print((' '*(height-i)) + ((2*i-1)*'*'))
+      print((' '*(height-i)) + s.center((2*i-1),'*'))
