@@ -5,11 +5,11 @@
 
 ocenka = 0
 i = 0
-sum = 0
+sum_1 = 0
 
 while ocenka != '0':
      ocenka = input('Введите оценку: ')
      i += 1
-     sum += float(ocenka)
+     sum_1 += float(ocenka)
 else:
-     print('средний бал: ', round((sum/i),1))     
+     print('средний бал: ', round((sum/i),1))          

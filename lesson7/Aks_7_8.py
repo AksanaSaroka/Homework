@@ -14,3 +14,12 @@
     Неправильный формат. Пример: '2 + 4'
 
 """
+
+text1 = "stop"
+
+# вариант через  eval
+while True:
+    example = input("Введите пример или команду stop: ")
+    if example == text1:
+        break
+    print('Ответ: ', eval(example))

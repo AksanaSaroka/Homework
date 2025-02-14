@@ -25,3 +25,46 @@
  
 
 '''
+
+from pprint import pprint
+
+sotrudniki = {
+    'Ларочкин С.П.': {
+    'fio' : 'Ларочкин Савелий Петрович',
+    'dolzhnost' : 'ведущий специалист',
+    'god_rozhd' : 1990,
+    'navyki' : {'расчеты': 95, 'общение с заказчиками': 70, 'разработка': 70, 'обучение': 30},
+    'deti' : {'name' : 'Анна', 'god_rozhd_det' : 2020}
+   },
+    'Гудина А.В.': {
+    'fio' : 'Гудина Екатерина Васильевна',
+    'dolzhnost' : 'инженер',
+    'god_rozhd' : 2001,
+    'navyki' : {'разработка': 50, 'оформление': 70},
+    'deti' : {'name' : 'Дмитрий', 'god_rozhd_det' : 2024}
+   },
+    'Кузьмич В.В.': {
+    'fio' : 'Кузьмич Валерий Валерьевич',
+    'dolzhnost' : 'главный специалист',
+    'god_rozhd' : 1970,
+    'navyki' : {'расчеты': 90, 'общение с заказчиками': 90, 'управление': 90, 'обучение': 85, 'оформление': 20},
+    'deti' : [
+        {'name' : 'Дарья', 'god_rozhd_det' : 2010},
+         {'name' : 'Константин', 'god_rozhd_det' : 2018}
+    ]
+   },
+}
+
+
+dict_skills = {}
+for sotrudnik, val in sotrudniki.items():
+    print(sotrudnik,val)
+    for skill, level in val['navyki'].items():
+         if skill not in dict_skills or dict_skills[skill][1] < level:
+            dict_skills[skill] = (sotrudnik, level)
+       
+
+
+# pprint(dict_skills)
+for i, skill in enumerate(dict_skills,1):
+    print(f"{i}.{skill} - {dict_skills[skill][0]} - {dict_skills[skill][1]}")
