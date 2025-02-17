@@ -12,10 +12,10 @@ sp = [1,2,3,1,4]
 def  fun_yes_or_no(lst):
     """
     Функция yes_or_no принимает список из целых чисел,
-а возвращает список из Yes или No для каждого элемента, 
-Yes - если число уже встречалось и No, если нет
-"""
-    # lst = list(map(int, input().split()))
+    а возвращает список из Yes или No для каждого элемента, 
+    Yes - если число уже встречалось и No, если нет
+    """
+    
     results = ['yes' if a in lst[:i] else 'no' for i, a in enumerate(lst)]
     # print(results)
     if not all(isinstance(x,int) for x in lst):

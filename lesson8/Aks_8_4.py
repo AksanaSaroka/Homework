@@ -13,17 +13,16 @@
 
 
 def money_fun(a):
-    while True:
-        try:
-            a = int(input('Введите a: '))
-            if a <= 0:
-                raise ValueError('отрицательное число нельзя')
-            break
-        except ZeroDivisionError:
-            print('ноль нельзя')
-
-    a1 = round(float(a),2)
-    return print('{:,}'.format(a1).replace(',', ' '),'руб.')
+    try:
+        a = int(a)
+        if a <= 0:
+            raise ValueError('отрицательное число нельзя')
+        a1 = round(float(a),2)
+        return ('{:,}'.format(a1).replace(',', ' '),'руб.')
+    except ZeroDivisionError:
+        return('ноль нельзя')
 
 
+a = input('Введите a: ')
+print(money_fun(a))
 

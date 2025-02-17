@@ -7,8 +7,8 @@ alf = "abcdefghijklmnopqrstuvwxyz"
 
 number = input('Введите число: ')
 
-for a in number:
-     number = number.replace(a, alf[int(a)-1])
+for s in number:
+     number = number.replace(s, alf[int(s)-1])
          
              
 print(number)

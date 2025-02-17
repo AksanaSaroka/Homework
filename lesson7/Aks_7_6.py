@@ -15,7 +15,7 @@ i = 1
 d = {}
 
 
-while name != word or review != word: 
+while True:     
     name = input('Ваше имя: ')
     if name == word:   
         break
@@ -25,9 +25,9 @@ while name != word or review != word:
     i += 1
     d.update({name: review})
 # print(i-1,d)
-print(f"количество отзывов:  {i-1} \
-        имена пользователей: {list(d.keys())}\
-        отзывы:{list(d.values())}"
+print(f"""количество отзывов:  {i-1}
+имена пользователей: {list(d.keys())} 
+отзывы:{list(d.values())}"""
         )
 
    

@@ -3,13 +3,13 @@
 Выдать средний бал ученика.
 """
 
-ocenka = 0
+grade = 0
 i = 0
 sum_1 = 0
 
-while ocenka != '0':
-     ocenka = input('Введите оценку: ')
+while grade != '0':
+     grade = input('Введите оценку: ')
      i += 1
-     sum_1 += float(ocenka)
+     sum_1 += float(grade)
 else:
-     print('средний бал: ', round((sum/i),1))          
+     print('средний бал: ', round((sum_1/i),1))          
