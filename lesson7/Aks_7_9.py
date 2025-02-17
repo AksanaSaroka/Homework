@@ -26,7 +26,7 @@
 
 '''
 
-from pprint import pprint
+# from pprint import pprint
 
 sotrudniki = {
     'Ларочкин С.П.': {
@@ -65,6 +65,6 @@ for sotrudnik, val in sotrudniki.items():
        
 
 
-# pprint(dict_skills)
+pprint(dict_skills)
 for i, skill in enumerate(dict_skills,1):
     print(f"{i}.{skill} - {dict_skills[skill][0]} - {dict_skills[skill][1]}")
