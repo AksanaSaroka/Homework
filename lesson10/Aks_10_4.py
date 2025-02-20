@@ -9,11 +9,15 @@
 """
 def gen_Fib(n):
     a1, a2 = 0, 1
+    yield a1
     for i in range(n):
         a1, a2 = a2, a1 + a2
         yield a1
-   
-print(list(gen_Fib(11)))
+
+        
+a = gen_Fib(11)  
+print(list(a))
+# print(type(a))
 
 
 
