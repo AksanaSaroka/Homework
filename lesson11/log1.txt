@@ -1,0 +1,20 @@
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f1. Ошибка division by zero
+Произошла ошибка в f1. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f11. Ошибка division by zero
+Произошла ошибка в f11. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f11. Ошибка division by zero
+Произошла ошибка в f11. Ошибка unsupported operand type(s) for /: 'int' and 'str'
+Произошла ошибка в f11. Ошибка division by zero
+Произошла ошибка в f11. Ошибка unsupported operand type(s) for /: 'int' and 'str'
