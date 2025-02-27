@@ -26,7 +26,7 @@
 
 '''
 
-# from pprint import pprint
+from pprint import pprint
 
 sotrudniki = {
     'Ларочкин С.П.': {
