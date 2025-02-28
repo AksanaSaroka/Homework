@@ -17,3 +17,25 @@ print(c10()) -> 13
 
 """
 
+def f_counter(n):
+    count = n
+
+    def wrapper(*args,**kwargs):
+        nonlocal count
+        count += 1
+        return count
+    
+    return wrapper
+
+c1 = f_counter(1)
+print(c1())
+print(c1())
+print(c1())
+print(c1())
+print(c1())
+print(c1())
+
+c10 = f_counter(10)
+print(c10())
+print(c10())
+print(c10())
