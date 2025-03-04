@@ -42,7 +42,8 @@ class Hero:
     def _get_info(self):        
         return f"Имя {self.name}\n" \
                f"Здоровье - {self.health}\n" \
-               f"Защита {self.armor}"
+               f"Защита {self.armor}\n"\
+               f"Сила {self.strong}"
         
     def print_info(self):
         print(self._get_info() + '\n')
@@ -58,18 +59,17 @@ class Spec_Attac:
         self.unique_power = unique_power # уникальное свойство-спец.очки
         self.damage = damage # урон от спец.атаки
 
-    # def special_attack(self, other):
-    #     """
-    #     метод атаки special_attack которая возможна только если количество 
-    #             спец.очков более 0.
-    #     """  
-    #     if self.unique_power > 0:
-    #         other.damage -= self.unique_power
-    #         self.unique_power -= 1
-    #         print(f"Применена специальная атака. Уникальная сила: {self.unique_power} спец. очков.
-    #         Урон противника:{other.damage}")
-    #     else:
-    #         print(f"Уникальное свойство истощено: нет спец.очков") 
+    def special_attack(self, other):
+        """
+        метод атаки special_attack которая возможна только если количество 
+                спец.очков более 0.
+        """  
+        if self.unique_power > 0:
+            other.damage -= self.unique_power
+            self.unique_power -= 1
+            return (f"Применена специальная атака.Уникальная сила: {self.unique_power} спец. очков.Урон противника:{other.damage}")
+        else:
+            print(f"Уникальное свойство истощено: нет спец.очков") 
 
     def choise_of_attack(self,usual_attack):
         """
@@ -81,6 +81,12 @@ class Spec_Attac:
         """
 
         self.special_attack() if self.unique_power > 0  and random.randint(1,100) <= 25 else usual_attack()
+
+    def __str__(self):
+        pass
+    
+    def __repr__(self):
+        pass
 
            
            
@@ -96,21 +102,22 @@ class Mag(Hero, Spec_Attac):
         
    
     def print_info(self, sep="-"):
-        info =  f"{super()._get_info()}\n"  \
+        info =  f"{Hero._get_info(self)}\n"  \
                 f"{sep*20}\n" \
                 f"Mana - {self.unique_power}\n"
         print(info)
 
 # орки(ярость)
-class Orc(Hero, Spec_Attac):    
+class Orc(Hero, Spec_Attac):   
+
     def __init__(self, name, health, armor, strong, unique_power, damage) -> None:
         # Hero.__init__(self, name, health, armor, strong)
-        Hero.__init__(name, health, armor, strong)
+        Hero.__init__(self, name, health, armor, strong)
         Spec_Attac.__init__(self, unique_power, damage)
        
    
     def print_info(self, sep="-"):
-        info =  f"{super()._get_info()}\n"  \
+        info =  f"{Hero._get_info(self)}\n"  \
                 f"{sep*20}\n" \
                 f"Ярость - {self.unique_power}\n"
         print(info)
@@ -119,12 +126,12 @@ class Orc(Hero, Spec_Attac):
 class Dwarf(Hero, Spec_Attac):    
     def __init__(self, name, health, armor, strong,  unique_power, damage) -> None:
         # Hero.__init__(self, name, health, armor, strong)
-        Hero.__init__(name, health, armor, strong)
+        Hero.__init__(self, name, health, armor, strong)
         Spec_Attac.__init__(self, unique_power, damage)
        
    
     def print_info(self, sep="-"):
-        info =  f"{super()._get_info()}\n"  \
+        info =  f"{Hero._get_info(self)}\n"  \
                 f"{sep*20}\n" \
                 f"Выносливость - {self.unique_power}\n"
         print(info)
@@ -133,12 +140,12 @@ class Dwarf(Hero, Spec_Attac):
 class Elf(Hero, Spec_Attac):    
     def __init__(self, name, health, armor, strong,  unique_power, damage) -> None:
         # Hero.__init__(self, name, health, armor, strong)
-        Hero.__init__(name, health, armor, strong)
+        Hero.__init__(self, name, health, armor, strong)
         Spec_Attac.__init__(self, unique_power, damage)
     
    
     def print_info(self, sep="-"):
-        info =  f"{super()._get_info()}\n"  \
+        info =  f"{Hero._get_info(self)}\n"  \
                 f"{sep*20}\n" \
                 f"Ловкость - {self.unique_power}\n"
         print(info)
@@ -148,21 +155,21 @@ class Elf(Hero, Spec_Attac):
 class Dragon(Hero, Spec_Attac):    
     def __init__(self, name, health, armor, strong, unique_power, damage) -> None:
         # Hero.__init__(self, name, health, armor, strong)
-        Hero.__init__(name, health, armor, strong)
+        Hero.__init__(self, name, health, armor, strong)
         Spec_Attac.__init__(self, unique_power, damage)
         
    
     def print_info(self, sep="-"):
-        info =  f"{super()._get_info()}\n"  \
+        info =  f"{Hero._get_info(self)}\n"  \
                 f"{sep*20}\n" \
                 f"Огонь - {self.unique_power}\n"
         print(info)
 
 
 
-hero1 = Mag('Gendalf', 30, 25, 10, 50, 10)
+hero1 = Mag('Gendalf', 30, 25, 10, 50, 0)
 hero2 = Mag('Gendalf2', 30, 25, 10, 70, 0)    
-hero3 = Orc('Ужасный', 30, 45, 10, 30, 10) 
+hero3 = Orc('Ужасный', 30, 45, 10, 30, 0) 
 hero2 = Dwarf('Мелкий', 30, 25, 10, 30, 0) 
 hero2 = Elf('Цветочек', 30, 25, 10, 50, 0) 
 hero2 = Dragon('Roarrr', 30, 25, 10, 10, 0) 
