@@ -48,13 +48,10 @@ class Hero:
     def print_info(self):
         print(self._get_info() + '\n')
     
-    def kick(self, other):        
-        other.armor -= self.strong
-        if other.armor < 0:
-            other.health += other.armor
-            other.armor = 0
+
     
 class Spec_Attac:
+
     def __init__(self, unique_power, damage):
         self.unique_power = unique_power # уникальное свойство-спец.очки
         self.damage = damage # урон от спец.атаки
@@ -87,16 +84,22 @@ class Spec_Attac:
         if self.unique_power > 0  and random.randint(1,100) <= 25:
             self.special_attack(other)
         else:
-            self.func_attack(other)
-            print (f"""
-                    {self.name} применил обычную атаку против {other.name}.\n
-                   {self.name}: состояние защиты:{self.armor}, состояние здоровья: {self.health}. \n
-                   {other.name}: состояние защиты:{other.armor}, состояние здоровья: {other.health}. 
-                   """)
+            self.kick(other)
+
            
-        
-    def func_attack(self,other):
-        pass    
+    def kick(self, other): 
+               
+        other.armor -= self.strong
+        if other.armor < 0:
+            other.health += other.armor
+            other.armor = 0 
+
+        print (f"""
+                {self.name} применил обычную атаку против {other.name}.\n
+                {self.name}: состояние защиты:{self.armor}, состояние здоровья: {self.health}. \n
+                {other.name}: состояние защиты:{other.armor}, состояние здоровья: {other.health}. 
+                """)  
+    
 
 
     def __str__(self):
@@ -126,11 +129,7 @@ class Mag(Hero, Spec_Attac):
                 f"Mana - {self.unique_power}\n"
         print(info)
 
-    def do_attack(self,other):
-        Spec_Attac.func_attack = Hero.kick
-        Spec_Attac.do_attack(self,other)
-
-        
+       
 
 # орки(ярость)
 class Orc(Hero, Spec_Attac):   
@@ -148,11 +147,6 @@ class Orc(Hero, Spec_Attac):
                 f"Ярость - {self.unique_power}\n"
         print(info)
     
-    def do_attack(self,other):
-        Spec_Attac.func_attack = Hero.kick
-        Spec_Attac.do_attack(self,other)
-
-
 
 # гномы(выносливость)
 class Dwarf(Hero, Spec_Attac): 
@@ -170,9 +164,6 @@ class Dwarf(Hero, Spec_Attac):
                 f"Выносливость - {self.unique_power}\n"
         print(info)
  
-    def do_attack(self,other):
-        Spec_Attac.func_attack = Hero.kick
-        Spec_Attac.do_attack(self,other)
 
 
 # эльфы(ловкость)
@@ -192,10 +183,6 @@ class Elf(Hero, Spec_Attac):
         print(info)
 
 
-    def do_attack(self,other):
-        Spec_Attac.func_attack = Hero.kick
-        Spec_Attac.do_attack(self,other)
-
 # драконы(огонь)
 class Dragon(Hero, Spec_Attac):  
 
@@ -213,34 +200,6 @@ class Dragon(Hero, Spec_Attac):
                 f"Огонь - {self.unique_power}\n"
         print(info)
 
-    def do_attack(self,other):
-        Spec_Attac.func_attack = Hero.kick
-        Spec_Attac.do_attack(self,other)
 
 
-
-hero1 = Mag('Gendalf', 30, 25, 10, 50, 0)
-hero2 = Mag('Gendalf2', 30, 25, 10, 70, 0)    
-hero3 = Orc('Ужасный', 30, 45, 10, 30, 0) 
-hero4 = Dwarf('Мелкий', 30, 25, 10, 30, 0) 
-hero5 = Elf('Цветочек', 30, 25, 10, 50, 0) 
-hero6 = Dragon('Roarrr', 30, 25, 10, 10, 0) 
-
-hero1.print_info()
-hero2.print_info()
-hero3.print_info()
-hero4.print_info()
-hero5.print_info()
-hero5.print_info()
-
-
-
-hero2.do_attack(hero1)
-hero1.do_attack(hero3)
-hero6.do_attack(hero5)
-
-# l = [hero1, hero2]
-# print(hero1 in l)
-# l.remove(hero1)
-# print(l)
 

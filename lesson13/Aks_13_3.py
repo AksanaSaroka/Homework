@@ -38,3 +38,26 @@
 
 """
 
+from Aks_hero1 import Hero, Spec_Attac, Mag, Orc, Dwarf, Elf, Dragon
+from Aks_Arena import Arena
+
+   
+hero1 = Mag('Gendalf', 5, 4, 10, 5, 0)
+hero2 = Mag('Gendalf2', 5, 3, 10, 7, 0)    
+hero3 = Orc('Ужасный', 5, 4, 10, 3, 0) 
+hero4 = Dwarf('Мелкий', 5, 3, 10, 3, 0) 
+hero5 = Elf('Цветочек', 5, 3, 10, 5, 0) 
+hero6 = Dragon('Roarrr', 10, 4, 10, 10, 0) 
+
+heroes = [hero1, hero2, hero3, hero4, hero5, hero6]
+
+Arena_1 = Arena(heroes)
+  
+
+# Arena_1._add_warrior(hero6)
+
+
+Arena_1.battle()
+
+
+       
