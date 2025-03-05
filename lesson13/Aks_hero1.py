@@ -83,10 +83,10 @@ class Spec_Attac:
         self.special_attack() if self.unique_power > 0  and random.randint(1,100) <= 25 else usual_attack()
 
     def __str__(self):
-        pass
+        return f'{self.name}'
     
     def __repr__(self):
-        pass
+        return f'{self.name}'
 
            
            
@@ -170,10 +170,16 @@ class Dragon(Hero, Spec_Attac):
 hero1 = Mag('Gendalf', 30, 25, 10, 50, 0)
 hero2 = Mag('Gendalf2', 30, 25, 10, 70, 0)    
 hero3 = Orc('Ужасный', 30, 45, 10, 30, 0) 
-hero2 = Dwarf('Мелкий', 30, 25, 10, 30, 0) 
-hero2 = Elf('Цветочек', 30, 25, 10, 50, 0) 
-hero2 = Dragon('Roarrr', 30, 25, 10, 10, 0) 
+hero4 = Dwarf('Мелкий', 30, 25, 10, 30, 0) 
+hero5 = Elf('Цветочек', 30, 25, 10, 50, 0) 
+hero6 = Dragon('Roarrr', 30, 25, 10, 10, 0) 
+
 hero1.print_info()
+hero2.print_info()
+hero3.print_info()
+hero4.print_info()
+hero5.print_info()
+
 
 l = [hero1, hero2]
 print(hero1 in l)
