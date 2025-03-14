@@ -33,17 +33,22 @@
 Валидацию данных сделать через регулярные выражения
 """
 import re
-import datetime
+from datetime import datetime as dt
+from datetime import timedelta
+import random
+import string
 
 class User:
-    def __init__(self, name, login, password='', is_blocked=False, subscription_date='', subscription_mode='free' ) -> None:
+    
+    def __init__(self, name:str, login:str, password:str = None) -> None:
         # свойства объектов
         self.name = name
         self.login = login
-        self.password = password
-        self.is_blocked = is_blocked
-        self.subscription_date = subscription_date
-        self.subscription_mode = subscription_mode
+        self.password = password if password else self.change_pass()
+        self.is_blocked = False
+        self.subscription_date = (dt.now().date() + timedelta(days=30)).strftime("%d/%m/%Y") # дата, до которой действует подписка
+        self.subscription_mode = 'free' # вид подписки (free, paid)
+
 
     @property
     def name(self):
@@ -70,16 +75,17 @@ class User:
     @property
     def password(self):
         return self.__password
-
+    
     @password.setter
     def password(self,value):
-        pattern_pass = r'^(?=.*[0-9].*)(?=.*[a-z].*)(?=.*[A-Z].*)[0-9a-zA-Z]{,6}$'
-        if not re.search(pattern_pass, value): 
+        if self.__check_pass(value): 
+            self.__password = value
+        else:
             raise ValueError(f""""Некорректный пароль. Необходимо использовать только латинские буквы, 
                              цифры. Длина пароля менее 6 символов, необходимы 
                              хотя бы одна строчная буква, одна заглавная буква и цифра.""")
-        else:
-            self.__login = value
+
+
 
     def __str__(self):
         return f"{self.name}, {self.login}, {self.password}"
@@ -87,20 +93,76 @@ class User:
     def __repr__(self):
         return f"{self.name}, {self.login}, {self.password}"
     
-    def bloc(self):
-        is_blocked = False
-        if a:
-            return is_blocked == True	
+    def bloc(self, flag):
+        if flag:
+            return self.is_blocked == True	
     
-    def check_subscr(self,check_date=datetime.now().date()):
-
-        if start_date <= check_date <= self.subscription_date:
-            return f"""Ваша подписка действует {self.subscription_date - check_date} дней.
-            Вид подписки:{self.subscription_mode}"""
-    # def change_pass(self):
-    #         pass
+    def check_subscr(self,check_date=None):
+        if not check_date:
+            check_date = (dt.now().date()).strftime("%d/%m/%Y")
+        d1 = dt.strptime(check_date, "%d/%m/%Y")
+        d2 = dt.strptime(self.subscription_date, "%d/%m/%Y")
+        
+        if d1 < d2:
+            self.bloc(flag=False)
+            print(f"""Ваша подписка действует {d2 - d1}.
+            Вид подписки:{self.subscription_mode}""")
+        else:
+            self.bloc(flag=True)
+            self.change_subscription() 
+            print(f"""Срок действия подписки истек. Вы заблокированы.
+                Вид подписки:{self.subscription_mode}.
+                Необходимо оплатить подписку""")
+          
     
-	# def get_info(self):
-    #         pass   
+    def __check_pass(self,password):
+        pattern_pass = r'^(?=.*[0-9].*)(?=.*[a-z].*)(?=.*[A-Z].*)[0-9a-zA-Z]{,6}$'
+        if re.search(pattern_pass, password): 
+            return password 
+ 
+    def generate_password(self,length=6):        
+        pattern_gen = string.ascii_lowercase + string.ascii_uppercase + string.digits
+        while True:
+            new_password = ''
 
-user_1 = User('Коля','uuuew99988mm','aBcck9')
+            for i in range(length):
+                new_password += new_password.join(random.choice(pattern_gen))
+
+            if (any(symbol in string.ascii_lowercase for symbol in new_password) and
+                any(symbol in string.ascii_uppercase for symbol in new_password) and
+                any(symbol in string.digits for symbol in new_password)):
+                break
+        return new_password
+    
+    def change_pass(self):
+            password = self.generate_password()
+            return password 
+    
+    def change_subscription(self):
+        self.subscription_mode = 'paid' 
+        return self.subscription_mode
+
+    
+    def get_info(self):
+        if not self.is_blocked:
+            return  f"Имя - {self.name}\n"\
+                    f"Логин - {self.login}\n"\
+                    f"Пароль - {self.password}\n"\
+                    f"Вид подписки - {self.subscription_mode}\n"\
+                    f"Подписка до - {self.subscription_date}\n"\
+                    
+        else:
+            return f"Срок действия подписки истек. Вы заблокированы"
+
+
+
+    def print_info(self):
+        print(self.get_info() + '\n')   
+
+
+   
+user_1 = User('Коля','uuuew99988mm')
+# user_1.check_subscr()
+user_1.check_subscr('18/3/2025')
+user_1.print_info()
+
