@@ -24,3 +24,20 @@
 	
  
 """
+import sqlite3
+
+con = sqlite3.connect('lesson15\\test_Aks_1.db')
+cur = con.cursor()
+
+sql = """
+CREATE TABLE IF NOT EXISTS services(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT,
+ 	type BOOLEAN,
+	price REAL,
+    period in days INTEGER
+);
+"""
+cur.execute(sql)
+con.commit()
+con.close()
